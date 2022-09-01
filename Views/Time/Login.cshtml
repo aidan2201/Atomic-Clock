@@ -1,7 +1,36 @@
-﻿
+﻿@model Atomic_Clock.Models.User
 @{
     ViewBag.Title = "Login";
 }
 
-<h2>@Html.ActionLink("Clock", "AtomicClock")</h2>
+<div>
+    @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { id = "UserName", @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { id = "UserName", @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="SubmitButton" type="submit" value="Submit" class="btn btn-primary pull-right" />
+            </div>
+        </div>
+
+    </div>
+            }
+</div>
 

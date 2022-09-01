@@ -12,9 +12,28 @@ namespace Atomic_Clock.Controllers
 {
     public class TimeController : Controller
     {
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            if (IsvalidUser(user.Username, user.Password))
+            {
+                return RedirectToAction("AtomicClock");
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+        private static bool IsvalidUser(string userName, string passWord)
+        {
+            return true;
         }
 
         public async Task<ActionResult> AtomicClock()
