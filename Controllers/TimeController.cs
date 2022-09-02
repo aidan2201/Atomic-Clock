@@ -66,5 +66,14 @@ namespace Atomic_Clock.Controllers
 
             return new DateTime();
         }
+
+        public async Task<JsonResult> GetJsonTime()
+        {
+            var time = await GetTime();
+
+            var jsonTime = JsonConvert.SerializeObject(time);
+
+            return Json(jsonTime, JsonRequestBehavior.AllowGet);
+        }
     }
 }
