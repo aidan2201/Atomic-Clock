@@ -57,7 +57,7 @@ namespace Atomic_Clock.Controllers
 
                 var atomicResponse = JsonConvert.DeserializeObject<AtomicClockResponse>(result);
 
-                return atomicResponse.DateTime;
+                return atomicResponse.DateTime.AddHours(1);
             }
             else
             {
